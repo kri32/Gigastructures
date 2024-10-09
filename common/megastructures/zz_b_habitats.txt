@@ -65,16 +65,22 @@ habitat_central_complex = {
 
     placement_rules = {
         planet_possible = {
-            custom_tooltip = {
-                fail_text = "requires_surveyed_planet"
-                is_surveyed = {			# prevent leaking habitability information
-                    who = prev.from
-                    status = yes
+            if = {
+                limit = {
+                    from = { is_ai = yes }
+                }
+                or = {
+                    has_deposit_for = shipclass_mining_station
+                    has_deposit_for = shipclass_research_station
                 }
             }
+            # balance for habitats
             custom_tooltip = {
-                fail_text = "requires_no_anomaly"
-                NOT = { has_anomaly = yes }
+                fail_text = "requires_not_minor_planetary_body"
+                NOR = {
+                    is_asteroid = yes
+                    is_moon = yes
+                }
             }
             custom_tooltip = {
                 fail_text = "requires_no_existing_megastructure"
@@ -98,32 +104,26 @@ habitat_central_complex = {
                 }
             }
             custom_tooltip = {
+                fail_text = "requires_surveyed_planet"
+                is_surveyed = {			# prevent leaking habitability information
+                    who = prev.from
+                    status = yes
+                }
+            }
+            custom_tooltip = {
+                fail_text = "requires_no_anomaly"
+                NOT = { has_anomaly = yes }
+            }
+            custom_tooltip = {
 				fail_text = "requires_not_astral_scar"
 				is_astral_scar = no
 			}
-            # balance for habitats
-            custom_tooltip = {
-                fail_text = "requires_not_minor_planetary_body"
-                NOR = {
-                    is_asteroid = yes
-                    is_moon = yes
-                }
-            }
             custom_tooltip = {
                 fail_text = "requires_not_solarpunk"
                 NOT = {
                     solar_system = {
                         has_star_flag = solarpunk_system_02
                     }
-                }
-            }
-            if = {
-                limit = {
-                    from = { is_ai = yes }
-                }
-                or = {
-                    has_deposit_for = shipclass_mining_station
-                    has_deposit_for = shipclass_research_station
                 }
             }
         } # use these for all non-star megastructures

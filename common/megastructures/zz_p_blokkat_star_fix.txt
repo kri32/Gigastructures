@@ -34,6 +34,13 @@ blokkat_star_fix_0 = {
 	placement_rules = {
 		planet_possible = {
 			custom_tooltip = { 
+				fail_text = "requires_destroyed_system"			
+				OR = {
+					is_star_class = sc_blokkat_stripmined
+					is_star_class = sc_empty_space
+				}
+			}
+			custom_tooltip = { 
 				fail_text = "requires_no_existing_megastructure"
 				AND = {
 					planet_has_no_megastructure = yes
@@ -44,13 +51,6 @@ blokkat_star_fix_0 = {
 			custom_tooltip = {
 				fail_text = "requires_not_astral_scar"
 				is_astral_scar = no
-			}
-			custom_tooltip = { 
-				fail_text = "requires_destroyed_system"			
-				OR = {
-					is_star_class = sc_blokkat_stripmined
-					is_star_class = sc_empty_space
-				}
 			}
 		}
 	}

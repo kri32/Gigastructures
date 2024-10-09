@@ -58,10 +58,6 @@ quantum_catapult_0 = {
 	placement_rules = {
 		planet_possible = {
 			custom_tooltip = {
-				fail_text = "requires_no_anomaly"
-				NOT = { has_anomaly = yes }
-			}
-			custom_tooltip = {
 				fail_text = "requires_neutron_star_or_pulsar"
 				is_star = yes
 				if = {
@@ -80,6 +76,10 @@ quantum_catapult_0 = {
 						is_planet_class = pc_pulsar
 					}
 				}
+			}
+			custom_tooltip = {
+				fail_text = "requires_no_anomaly"
+				NOT = { has_anomaly = yes }
 			}
 		}
 	}

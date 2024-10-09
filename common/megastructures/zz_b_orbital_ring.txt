@@ -35,34 +35,17 @@ orbital_ring = {
 	placement_rules = {
 		planet_possible = {
 			custom_tooltip = {
-				fail_text = "requires_surveyed_planet"
-				is_surveyed = { # prevent leaking habitability information
-					who = prev.from
-					status = yes
-				}
-			}
-			custom_tooltip = {
-				fail_text = "requires_no_anomaly"
-				NOT = { has_anomaly = yes }
-			}
-			custom_tooltip = {
 				fail_text = "requires_colonized_planet_orbital_ring"
 				is_colony = yes
 				exists = owner
 				exists = controller
 				controller = { is_same_value = prev.owner }
 			}
-			custom_tooltip = {
-				fail_text = "requires_not_hostile_or_primitive"
-				NOR = {
-					planet_is_hostile_or_crisis = yes
-					AND = {
-						exists = owner
-						owner = {
-							is_country_type = primitive
-						}
-					}
+			if = {
+				limit = {
+					from = { is_ai = yes }
 				}
+				num_pops >= 25
 			}
 			# block double builds
 			custom_tooltip = {
@@ -119,16 +102,33 @@ orbital_ring = {
 				}
 			}
 			custom_tooltip = {
+				fail_text = "requires_surveyed_planet"
+				is_surveyed = { # prevent leaking habitability information
+					who = prev.from
+					status = yes
+				}
+			}
+			custom_tooltip = {
+				fail_text = "requires_no_anomaly"
+				NOT = { has_anomaly = yes }
+			}
+			custom_tooltip = {
+				fail_text = "requires_not_hostile_or_primitive"
+				NOR = {
+					planet_is_hostile_or_crisis = yes
+					AND = {
+						exists = owner
+						owner = {
+							is_country_type = primitive
+						}
+					}
+				}
+			}
+			custom_tooltip = {
 				fail_text = "requires_no_orbital_debris"
 				NOR = {
 					has_planet_flag = has_orbital_debris
 				}
-			}
-			if = {
-				limit = {
-					from = { is_ai = yes }
-				}
-				num_pops >= 25
 			}
 		}
 	}

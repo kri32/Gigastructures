@@ -39,9 +39,9 @@ birch_world_0 = {
 
 	placement_rules = {
 		planet_possible = {
+			custom_tooltip = { fail_text = "must_build_around_core_black_hole"				is_planet_class = pc_core_black_hole }
 			custom_tooltip = { fail_text = "requires_no_existing_megastructure"				planet_has_no_megastructure = yes }
 			custom_tooltip = { fail_text = "requires_no_anomaly"							has_anomaly = no }
-			custom_tooltip = { fail_text = "must_build_around_core_black_hole"				is_planet_class = pc_core_black_hole }
 		}
 	}
 

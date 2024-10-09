@@ -49,14 +49,6 @@ planetary_drive_yard_0 = {
 
 	placement_rules = {
 		planet_possible = {
-			custom_tooltip = { fail_text = "requires_surveyed_planet"				is_surveyed = { who = prev.from status = yes } }
-			custom_tooltip = { fail_text = "requires_no_anomaly"					has_anomaly = no }
-			custom_tooltip = { fail_text = "requires_not_asteroid"					is_asteroid = no }
-			# custom_tooltip = {
-			# 	fail_text = "must_build_around_habitable_planet"
-			# 	is_colony = yes
-			# 	NOT = { owner = { is_country_type = primitive } } 
-			# }
 			custom_tooltip = {
 				fail_text = "requires_colonized_planet_orbital_ring"
 				is_colony = yes
@@ -64,6 +56,25 @@ planetary_drive_yard_0 = {
 				exists = controller
 				controller = { is_same_value = prev.owner }
 			}
+			custom_tooltip = { fail_text = "requires_not_asteroid"					is_asteroid = no }
+			custom_tooltip = { fail_text = "requires_not_star"						is_star = no }
+			custom_tooltip = {
+				fail_text = "requires_non_giga_habitable_structure"
+				OR = { 
+					giga_habitable_structure = no
+					habitable_structure = no
+					is_planet_class = pc_giga_planetary_computer
+					is_planet_class = pc_habitable_gas_giant
+					is_regular_giga_maginot_world = yes
+				}
+			}
+			custom_tooltip = { fail_text = "requires_surveyed_planet"				is_surveyed = { who = prev.from status = yes } }
+			custom_tooltip = { fail_text = "requires_no_anomaly"					has_anomaly = no }
+			# custom_tooltip = {
+			# 	fail_text = "must_build_around_habitable_planet"
+			# 	is_colony = yes
+			# 	NOT = { owner = { is_country_type = primitive } } 
+			# }
 			custom_tooltip = {
 				fail_text = "requires_not_hostile_or_primitive"
 				NOR = {
@@ -76,20 +87,9 @@ planetary_drive_yard_0 = {
 					}
 				}
 			}
-			custom_tooltip = { fail_text = "requires_not_star" is_star = no }
 			custom_tooltip = {
 				fail_text = "requires_not_astral_scar"
 				is_astral_scar = no
-			}
-			custom_tooltip = {
-				fail_text = "requires_non_giga_habitable_structure"
-				OR = { 
-					giga_habitable_structure = no
-					habitable_structure = no
-					is_planet_class = pc_giga_planetary_computer
-					is_planet_class = pc_habitable_gas_giant
-					is_regular_giga_maginot_world = yes
-				}
 			}
 			custom_tooltip = { fail_text = "requires_nothing_in_orbit"			
 				NOR = {

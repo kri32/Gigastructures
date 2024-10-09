@@ -147,15 +147,19 @@ dyson_swarm_1 = {
 				is_star = yes
 			}
 			custom_tooltip = {
-				fail_text = "requires_no_anomaly"
-				NOT = { has_anomaly = yes }
-			}
-			custom_tooltip = {
 				fail_text = "requires_no_existing_megastructure"
 				NOR = {
 					has_planet_flag = megastructure
 					has_planet_flag = has_megastructure
 				}
+			}
+			custom_tooltip = {
+				fail_text = "requires_standard_star_class"
+				giga_is_standard_star_system = yes
+			}
+			custom_tooltip = {
+				fail_text = "requires_no_anomaly"
+				NOT = { has_anomaly = yes }
 			}
 			if = {
 				limit = {
@@ -166,11 +170,6 @@ dyson_swarm_1 = {
 					has_deposit = d_energy_2
 				}
 			}
-			custom_tooltip = {
-				fail_text = "requires_standard_star_class"
-				giga_is_standard_star_system = yes
-			}
-
 		}
 	}
 

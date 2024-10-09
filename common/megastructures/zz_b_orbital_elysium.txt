@@ -32,13 +32,6 @@ orbital_elysium_0 = {
 
 	placement_rules = {
 		planet_possible = {
-			custom_tooltip = { fail_text = "requires_surveyed_planet"			is_surveyed = { who = prev.from status = yes } }
-			custom_tooltip = { fail_text = "requires_no_anomaly"				has_anomaly = no }
-			custom_tooltip = { fail_text = "requires_not_star"					is_star = no }
-			custom_tooltip = {
-				fail_text = "requires_not_astral_scar"
-				is_astral_scar = no
-			}
 			custom_tooltip = {
 				fail_text = "requires_colonized_planet_orbital_ring"
 				is_colony = yes
@@ -59,8 +52,15 @@ orbital_elysium_0 = {
 					}
 				}
 			}
+			custom_tooltip = { fail_text = "requires_not_star"					is_star = no }
 			custom_tooltip = { fail_text = "requires_no_existing_megastructure"	planet_has_no_megastructure = yes }
 			custom_tooltip = { fail_text = "requires_no_existing_megastructure"	NOT = { has_planet_flag = has_orbital_elysium } }
+			custom_tooltip = { fail_text = "requires_surveyed_planet"			is_surveyed = { who = prev.from status = yes } }
+			custom_tooltip = { fail_text = "requires_no_anomaly"				has_anomaly = no }
+			custom_tooltip = {
+				fail_text = "requires_not_astral_scar"
+				is_astral_scar = no
+			}
 			custom_tooltip = {
 				fail_text = "requires_no_orbital_debris"
 				NOR = {

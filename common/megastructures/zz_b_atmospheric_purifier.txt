@@ -48,17 +48,17 @@ terraform_toxic_0 = {
 	placement_rules = {
 		planet_possible = {
 			custom_tooltip = { fail_text = "must_build_around_toxic"			giga_is_toxic = yes }
-			custom_tooltip = { fail_text = "requires_no_anomaly"				has_anomaly = no }
-			custom_tooltip = { fail_text = "requires_survey_not_habitable"		is_surveyed = { who = prev.from status = yes } is_planet_habitable = no }
 			custom_tooltip = { fail_text = "requires_not_asteroid"				is_asteroid = no }
 			custom_tooltip = { fail_text = "requires_not_star"					is_star = no }
 			custom_tooltip = {
-				fail_text = "requires_not_astral_scar"
-				is_astral_scar = no
-			}
-			custom_tooltip = {
 				fail_text = "requires_no_existing_megastructure"
 				NOT = { has_planet_flag = giga_terraforming_megastructure }
+			}
+			custom_tooltip = { fail_text = "requires_survey_not_habitable"		is_surveyed = { who = prev.from status = yes } is_planet_habitable = no }
+			custom_tooltip = { fail_text = "requires_no_anomaly"				has_anomaly = no }
+			custom_tooltip = {
+				fail_text = "requires_not_astral_scar"
+				is_astral_scar = no
 			}
 			# custom_tooltip = { #Someone left an unfinished failtext here so I'll just comment it out for now I guess
 			# 	fail_text = "requires"
