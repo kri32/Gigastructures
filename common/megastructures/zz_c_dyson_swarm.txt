@@ -88,6 +88,18 @@ dyson_swarm_1 = {
 			is_inside_border = from
 		}
 		custom_tooltip = {
+			fail_text = "requires_less_than_x_dyson_swarms"
+			from = {
+				OR = {
+					check_variable = {
+						which = dyson_swarm_counter
+						value < value:dyson_swarm_limit
+					}
+					has_global_flag = vanilla_dyson_swarm_capped_u
+				}
+			}
+		}
+		custom_tooltip = {
 			fail_text = "requires_surveyed_system"
 			NOT = {
 				any_system_planet = {
@@ -124,18 +136,6 @@ dyson_swarm_1 = {
 				is_star_class = sc_black_hole
 				is_star_class = sc_neutron_star
 				is_star_class = sc_pulsar
-			}
-		}
-		custom_tooltip = {
-			fail_text = "requires_less_than_x_dyson_swarms"
-			from = {
-				OR = {
-					check_variable = {
-						which = dyson_swarm_counter
-						value < value:dyson_swarm_limit
-					}
-					has_global_flag = vanilla_dyson_swarm_capped_u
-				}
 			}
 		}
 	}

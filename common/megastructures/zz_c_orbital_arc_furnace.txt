@@ -46,6 +46,19 @@ orbital_arc_furnace_1 = {
 			is_inside_border = from
 		}
 		custom_tooltip = {
+			fail_text = "requires_less_than_x_arc_furnaces"
+			from = {
+				OR = {
+					check_variable = {
+						which = arc_furnace_counter
+						value < value:arc_furnace_limit
+					}
+					has_global_flag = vanilla_furnace_capped_u
+				}
+
+			}
+		}
+		custom_tooltip = {
 			fail_text = "requires_surveyed_system"
 			NOT = {
 				any_system_planet = {
@@ -88,20 +101,6 @@ orbital_arc_furnace_1 = {
 		custom_tooltip = { 
 			fail_text = "requires_no_orb_eco_arc"			
 			giga_system_has_artificial_eco = no
-		}
-
-		custom_tooltip = {
-			fail_text = "requires_less_than_x_arc_furnaces"
-			from = {
-				OR = {
-					check_variable = {
-						which = arc_furnace_counter
-						value < value:arc_furnace_limit
-					}
-					has_global_flag = vanilla_furnace_capped_u
-				}
-
-			}
 		}
 	}
 
